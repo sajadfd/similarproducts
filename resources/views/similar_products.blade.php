@@ -44,19 +44,8 @@
             margin: 0;
             margin-bottom: 10px;
         }
-
-        /* All products section */
-        .all-products {
-            margin-bottom: 20px;
-        }
-
-        .all-products h3 {
-            margin: 0;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
-
 <body>
     <div class="container">
         <!-- Product details section -->
@@ -66,9 +55,10 @@
             <div class="product-info">
                 <h1>original product is :"{{ $product->name }}"</h1>
                 <p>Frequency: {{ $product->frequency }}</p>
+                <p>request time: {{ $request_time }}</p>
+
             </div>
         </div>
-
         <!-- Similar products section -->
         <div class="similar-products">
             @if ($similarProducts->count() > 0)
@@ -92,17 +82,7 @@
             @else
                 <p>No similar products found.</p>
             @endif
-            <!-- All products section -->
-            {{-- <div class="all-products">
-            <h3>All Products:</h3>
-            <ul>
-                @foreach ($allProducts as $product)
-                    <li>{{ $product->name }}</li>
-                @endforeach
-            </ul>
-        </div> --}}
         </div>
-
         <script>
             // Add click event listener to table rows with a data-href attribute
             document.querySelectorAll('tr[data-href]').forEach(row => {

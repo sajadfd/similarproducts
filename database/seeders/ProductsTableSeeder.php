@@ -10,7 +10,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        // Insert 50 products with similar names to "красная рубашка"
+        // Insert products in task
         $similarProducts = [
             ['name' => 'red shirt', 'frequency' => 10],
             ['name' => 'blue shirt', 'frequency' => 5],
@@ -23,8 +23,8 @@ class ProductsTableSeeder extends Seeder
         foreach ($similarProducts as $product) {
             DB::table('products')->insert($product);
         }
-        // Insert 50 random products
-        for ($i = 0; $i < 50; $i++) {
+        // Insert 100 random products
+        for ($i = 0; $i < 100; $i++) {
             $name = $faker->colorName . ' ' . $faker->word.' '.$faker->randomElement(['shirt', 'pants', 'shorts', 'jacket']);
             $frequency = $faker->numberBetween(0, 10);
             DB::table('products')->insert([
